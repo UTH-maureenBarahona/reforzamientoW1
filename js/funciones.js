@@ -6,8 +6,22 @@ function soloNumeros(e){
     }
   }
 
+  function concatenarNombres(){
+      var PNombre = document.getElementById('pNombre') ;
+      console.log(pNombre);
+      var SNombre =document.getElementById('sNombre');
+
+      console.log(SNombre);
+      
+      var completo = PNombre.value+ " " + SNombre.value; 
+
+      console.log(completo);
+      document.rellenar.nCompleto.value =completo;
+  }
+
   function almacenar(){
- var numId = document.getElementById('numId');
- 
+  var numId = document.getElementById('numId');
+
 
   }
+

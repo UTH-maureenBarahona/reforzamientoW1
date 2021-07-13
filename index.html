@@ -49,25 +49,27 @@
           <form name="rellenar">
             <div class="form-group">
 
-              <label for="txtEntrada">Numero de identidad</label>
+              <label for="input">Numero de identidad</label>
               <input type="text" class="form-control" id="numId"  placeholder = "Ingresar solo numeros sin guiones" onkeypress="soloNumeros(event)" maxlength="13">
               <br>
-              <label for="txtEntrada">Primer nombre</label>
-              <input type="text" class="form-control" name="txtEntrada" id="pNombre" required>
-              <label for="txtEntrada">Segundo nombre</label>
-              <input type="text" class="form-control" name="txtEntrada" id="sNombre" required>
-              <label for="txtEntrada">Apellidos</label>
-              <input type="text" class="form-control" name="txtEntrada" id="apellidos" required>
-              <label for="txtEntrada">Fecha de nacimiento</label>
-              <input type="text" class="form-control" name="txtEntrada" id="fNacimiento" required>
-              <label for="txtEntrada">Genero</label>
-              <input type="text" class="form-control" name="txtEntrada" id="genero" required>
-              <label for="txtEntrada">Sueldo base</label>
-              <input type="text" class="form-control" name="txtEntrada" id="sBase" required>
-              <label for="txtEntrada">Correo electronico</label>
+              <label for="input">Primer nombre</label>
+              <input type="text" class="form-control" name="pNombre" id="pNombre" required>
+              <br>
+              <label for="input">Segundo nombre</label>
+              <input type="text" class="form-control" name="sNombre" id="sNombre"  required>
+              <br>
+              <label for="input">Apellidos</label>
+              <input type="text" class="form-control" name="apellidos" id="apellidos" required>
+              <label for="input">Fecha de nacimiento</label>
+              <input type="text" class="form-control" name="fNacimiento" id="fNacimiento" required>
+              <label for="input">Genero</label>
+              <input type="text" class="form-control" name="genero" id="genero" required>
+              <label for="input">Sueldo base</label>
+              <input type="text" class="form-control" name="sBase" id="sBase" required>
+              <label for="input">Correo electronico</label>
               <input type="email" class="form-control" id="cElectronico" aria-describedby="emailHelp">
-              <label for="txtEntrada">Puestos</label>
-              <input type="text" class="form-control" name="txtEntrada" id="puesto" required>
+              <label for="input">Puestos</label>
+              <input type="text" class="form-control" name="puesto" id="puesto" required>
             </div>
 
 
@@ -79,27 +81,27 @@
                     <p class="card-text">Datos calculados</p>
 
                     <hr>
-                    <form>
+                   
                       <div class="form-group">
 
-                        <label for="txtEntrada">Nombre completo</label>
+                        <label for="input">Nombre completo</label>
                         <input type="email" class="form-control" id="nCompleto">
-                        <label for="txtEntrada">Deducciones por ahorro</label>
-                        <input type="text" class="form-control" name="txtEntrada" id="dAhorro">
-                        <label for="txtEntrada">Bonificacion</label>
-                        <input type="text" class="form-control" name="txtEntrada" id="bonificacion">
-                        <label for="txtEntrada">Bono navideño</label>
-                        <input type="text" class="form-control" name="txtEntrada" id="bNavidad">
-                        <label for="txtEntrada">Seguro Privado</label>
-                        <input type="text" class="form-control" name="txtEntrada" id="sPrivado">
-                        <label for="txtEntrada">Seguro Social</label>
-                        <input type="text" class="form-control" name="txtEntrada" id="sSocial" required>
-                        <label for="txtEntrada">Sueldo Neto</label>
-                        <input type="text" class="form-control" name="txtEntrada" id="sNeto" required>
+                        <label for="input">Deducciones por ahorro</label>
+                        <input type="text" class="form-control" name="input" id="dAhorro">
+                        <label for="input">Bonificacion</label>
+                        <input type="text" class="form-control" name="input" id="bonificacion">
+                        <label for="input">Bono navideño</label>
+                        <input type="text" class="form-control" name="input" id="bNavidad">
+                        <label for="input">Seguro Privado</label>
+                        <input type="text" class="form-control" name="input" id="sPrivado">
+                        <label for="input">Seguro Social</label>
+                        <input type="text" class="form-control" name="input" id="sSocial" required>
+                        <label for="input">Sueldo Neto</label>
+                        <input type="text" class="form-control" name="input" id="sNeto" required>
 
                       </div>
                       <br>
-                    </form>
+                  
 
                     </p>
                   </div>
@@ -110,7 +112,7 @@
 
             </div>
             <div class="btn-group me-2">
-              <button type="submit" class="btn btn-primary">Almacenar</button>
+              <button type="submit" class="btn btn-primary" onclick="concatenarNombres()">Almacenar</button>
             </div>
             <div class="btn-group me-2">
               <button type="submit" class="btn btn-primary">Imprimir</button>
