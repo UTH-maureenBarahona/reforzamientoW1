@@ -1,27 +1,34 @@
 //Solo permite introducir numeros.
-function soloNumeros(e){
-    var key = window.event ? e.which : e.keyCode;
-    if (key < 48 || key > 57) {
-      e.preventDefault();
-    }
+function soloNumeros(e) {
+  var key = window.event ? e.which : e.keyCode;
+  if (key < 48 || key > 57) {
+    e.preventDefault();
   }
+}
 
-  function concatenarNombres(){
-      var PNombre = document.getElementById('pNombre') ;
-      console.log(pNombre);
-      var SNombre =document.getElementById('sNombre');
-
-      console.log(SNombre);
-      
-      var completo = PNombre.value+ " " + SNombre.value; 
-
-      console.log(completo);
-      document.rellenar.nCompleto.value =completo;
+function validateDecimal(valor) {
+  var RE = /^\d*(\.\d{1})?\d{0,1}$/;
+  if (RE.test(valor)) {
+    return true;
+  } else {
+    return false;
   }
+}
 
-  function almacenar(){
-  var numId = document.getElementById('numId');
+function concatenarNombres() {
+  var PNombre = document.getElementById("pNombre");
+
+  var SNombre = document.getElementById("sNombre");
+
+  var Apellido = document.getElementById("apellidos");
+
+  var completo = PNombre.value + " " + SNombre.value + " " + Apellido.value;
+
+  document.rellenar.nCompleto.value = completo;
+}
+
+function almacenar() {
+  concatenarNombres();
 
 
-  }
-
+}
