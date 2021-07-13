@@ -1,9 +1,32 @@
+var names=document.getElementsByName('name[]');
 //Solo permite introducir numeros.
 function soloNumeros(e) {
   var key = window.event ? e.which : e.keyCode;
   if (key < 48 || key > 57) {
     e.preventDefault();
   }
+}
+
+function limpiarFormulario() {
+    document.getElementById("rellenar").reset();
+  }
+
+  function imprimir() {
+    window.print();
+  }
+
+function calcularEdad() {
+    var fecha = document.getElementById("edad");
+    var hoy = new Date();
+    var cumpleanos = new Date(fecha);
+    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    var m = hoy.getMonth() - cumpleanos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+
+    return edad;
 }
 
 function validateDecimal(valor) {
@@ -75,16 +98,20 @@ document.rellenar.sNeto.value = SueldoNeto;
 
 }
 
+function InsertIntoTable()
+{
+  var TableRow="<tr></tr>";
+	for(key=0; key < names.length; key++)
+    TableRow = TableRow.substring(0,TableRow.length-5) + "<td>" + names[key].value + "</td>" + TableRow.substring(TableRow.length-5);
+
+  var TrElement = document.createElement("tr");
+	TrElement.innerHTML = TableRow;
+	document.getElementById("TableBody").appendChild(TrElement);
+}
+
 function almacenar() {
   concatenarNombres();
   calculos();
 }
 
 
-function limpiarFormulario() {
-    document.getElementById("rellenar").reset();
-  }
-
-  function imprimir() {
-    window.print();
-  }
