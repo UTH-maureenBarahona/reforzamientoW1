@@ -1,21 +1,34 @@
-var names=document.getElementsByName('name[]');
+var names = document.getElementsByName("name[]");
 //Solo permite introducir numeros.
 function soloNumeros(e) {
-  var key = window.event ? e.which : e.keyCode;
-  if (key < 48 || key > 57) {
-    e.preventDefault();
+  try {
+    var key = window.event ? e.which : e.keyCode;
+    if (key < 48 || key > 57) {
+      e.preventDefault();
+    }
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
   }
 }
 
 function limpiarFormulario() {
+  try {
     document.getElementById("rellenar").reset();
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
   }
+}
 
-  function imprimir() {
+function imprimir() {
+  try {
     window.print();
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
   }
+}
 
 function calcularEdad() {
+  try {
     var fecha = document.getElementById("edad");
     var hoy = new Date();
     var cumpleanos = new Date(fecha);
@@ -23,31 +36,42 @@ function calcularEdad() {
     var m = hoy.getMonth() - cumpleanos.getMonth();
 
     if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
-        edad--;
+      edad--;
     }
 
     return edad;
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
+  }
 }
 
 function validateDecimal(valor) {
-  var RE = /^\d*(\.\d{1})?\d{0,1}$/;
-  if (RE.test(valor)) {
-    return true;
-  } else {
-    return false;
+  try {
+    var RE = /^\d*(\.\d{1})?\d{0,1}$/;
+    if (RE.test(valor)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
   }
 }
 
 function concatenarNombres() {
-  var PNombre = document.getElementById("pNombre");
+  try {
+    var PNombre = document.getElementById("pNombre");
 
-  var SNombre = document.getElementById("sNombre");
+    var SNombre = document.getElementById("sNombre");
 
-  var Apellido = document.getElementById("apellidos");
+    var Apellido = document.getElementById("apellidos");
 
-  var completo = PNombre.value + " " + SNombre.value + " " + Apellido.value;
+    var completo = PNombre.value + " " + SNombre.value + " " + Apellido.value;
 
-  document.rellenar.nCompleto.value = completo;
+    document.rellenar.nCompleto.value = completo;
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
+  }
 }
 
 function calculos() {
@@ -60,58 +84,84 @@ vi. Seguro social (4% del sueldo base).
 vii. Sueldo Neto (sueldo base – deducciones por ahorro – seguros +
 bonificación).  */
 
-  var SBase = document.getElementById("sBase");
-  var DAhorro = Math.floor(SBase.value * 10) / 100;
+  try {
+    var SBase = document.getElementById("sBase");
+    var DAhorro = Math.floor(SBase.value * 10) / 100;
 
-  document.rellenar.dAhorro.value = DAhorro;
+    document.rellenar.dAhorro.value = DAhorro;
 
-  var Bonificacion =  Math.floor(SBase.value * 15) / 100;
+    var Bonificacion = Math.floor(SBase.value * 15) / 100;
 
-  document.rellenar.bonificacion.value = Bonificacion;
+    document.rellenar.bonificacion.value = Bonificacion;
 
-  var Puesto = document.getElementById("puesto");
-  var ValBonoNav;
+    var Puesto = document.getElementById("puesto");
+    var ValBonoNav;
 
-  if (Puesto.value == 1) {
-    ValBonoNav = 250;
-  } else {
-    ValBonoNav = 300;
+    if (Puesto.value == 1) {
+      ValBonoNav = 250;
+    } else {
+      ValBonoNav = 300;
+    }
+
+    document.rellenar.bNavidad.value = ValBonoNav;
+
+    //seguro privado
+    var SPrivado = SBase.value - DAhorro;
+
+    var ValSeguroPrivado = Math.floor(SPrivado * 3.5) / 100;
+
+    document.rellenar.sPrivado.value = ValSeguroPrivado;
+
+    //Seguro Social
+    var SSocial = Math.floor(SBase.value * 4) / 100;
+    document.rellenar.sSocial.value = SSocial;
+
+    var SueldoNeto =
+      SBase.value -
+      DAhorro -
+      (ValSeguroPrivado + SSocial) +
+      (Bonificacion + ValBonoNav);
+    document.rellenar.sNeto.value = SueldoNeto;
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
   }
-
-  document.rellenar.bNavidad.value = ValBonoNav;
-
-
-//seguro privado
-var SPrivado = SBase.value - DAhorro;
-
-var ValSeguroPrivado=(Math.floor(SPrivado * 3.5) / 100);
-
-document.rellenar.sPrivado.value = ValSeguroPrivado;
-
-//Seguro Social
-var SSocial = Math.floor(SBase.value * 4) / 100;
-document.rellenar.sSocial.value = SSocial;
-
-var SueldoNeto = (SBase.value - DAhorro -(ValSeguroPrivado+SSocial) +(Bonificacion+ValBonoNav));
-document.rellenar.sNeto.value = SueldoNeto;
-
-
 }
 
-function InsertIntoTable()
+function validateEmpty()
 {
-  var TableRow="<tr></tr>";
-	for(key=0; key < names.length; key++)
-    TableRow = TableRow.substring(0,TableRow.length-5) + "<td>" + names[key].value + "</td>" + TableRow.substring(TableRow.length-5);
+var t = document.getElementById("numId");
 
-  var TrElement = document.createElement("tr");
-	TrElement.innerHTML = TableRow;
-	document.getElementById("TableBody").appendChild(TrElement);
+t.addEventListener("input", function(){
+
+  t.style.backgroundColor = t.value === "" ? "#f00" : "#0f0";
+ 
+});
+
 }
+
+function InsertIntoTable() {
+  try {
+    var TableRow = "<tr></tr>";
+    for (key = 0; key < names.length; key++)
+      TableRow =
+        TableRow.substring(0, TableRow.length - 5) +
+        "<td>" +
+        names[key].value +
+        "</td>" +
+        TableRow.substring(TableRow.length - 5);
+
+    var TrElement = document.createElement("tr");
+    TrElement.innerHTML = TableRow;
+    document.getElementById("TableBody").appendChild(TrElement);
+  } catch (error) {
+    document.getElementById("error").innerHTML = err.message;
+  }
+}
+
+
 
 function almacenar() {
   concatenarNombres();
   calculos();
+  InsertIntoTable();
 }
-
-
