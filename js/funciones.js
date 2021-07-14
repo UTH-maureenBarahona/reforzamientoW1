@@ -29,7 +29,8 @@ function imprimir() {
 
 function calcularEdad() {
   try {
-    var fecha = document.getElementById("edad");
+    var fecha = document.getElementById("fNacimiento").value;
+    console.log(fecha);
     var hoy = new Date();
     var cumpleanos = new Date(fecha);
     var edad = hoy.getFullYear() - cumpleanos.getFullYear();
@@ -38,10 +39,11 @@ function calcularEdad() {
     if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
       edad--;
     }
-
+    document.rellenar.edad.value = edad;
     return edad;
+    
   } catch (error) {
-    document.getElementById("error").innerHTML = err.message;
+    document.getElementById("error").innerHTML = error.message;
   }
 }
 
@@ -54,7 +56,7 @@ function validateDecimal(valor) {
       return false;
     }
   } catch (error) {
-    document.getElementById("error").innerHTML = err.message;
+    document.getElementById("error").innerHTML = error.message;
   }
 }
 
@@ -70,7 +72,7 @@ function concatenarNombres() {
 
     document.rellenar.nCompleto.value = completo;
   } catch (error) {
-    document.getElementById("error").innerHTML = err.message;
+    document.getElementById("error").innerHTML = error.message;
   }
 }
 
@@ -123,7 +125,7 @@ bonificación).  */
       (Bonificacion + ValBonoNav);
     document.rellenar.sNeto.value = SueldoNeto;
   } catch (error) {
-    document.getElementById("error").innerHTML = err.message;
+    document.getElementById("error").innerHTML = error.message;
   }
 }
 
@@ -154,13 +156,14 @@ function InsertIntoTable() {
     TrElement.innerHTML = TableRow;
     document.getElementById("TableBody").appendChild(TrElement);
   } catch (error) {
-    document.getElementById("error").innerHTML = err.message;
+    document.getElementById("error").innerHTML = error.message;
   }
 }
 
 
 
 function almacenar() {
+  calcularEdad();
   concatenarNombres();
   calculos();
   InsertIntoTable();

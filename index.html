@@ -47,44 +47,54 @@
 
           <hr>
           <form name="rellenar">
-            <div class="form-group">
 
-              <label for="numId"  class="form-label" >Numero de identidad</label>
-              <input type="text" class="form-control" id="numId" placeholder="Ingresar solo numeros sin guiones"
-                onkeypress="soloNumeros(event)" maxlength="13"  required="">
-                <div class="invalid-feedback">
-                  Ingrese num de Id
-                </div>
-              <br>
-              <label for="input">Primer nombre</label>
-              <input type="text" class="form-control" name="pNombre" id="pNombre" required>
-              <br>
-              <label for="input">Segundo nombre</label>
-              <input type="text" class="form-control" name="sNombre" id="sNombre" required>
-              <br>
-              <label for="input">Apellidos</label>
-              <input type="text" class="form-control" name="apellidos" id="apellidos" required>
-              <br>
-              <label for="input">Fecha de nacimiento</label>
-              <input type="date" class="form-control" name="fNacimiento" id="datepicker" required>
-              <br>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Genero</option>
-                <option value="1">Masculino</option>
-                <option value="2">Femenino</option>
-              </select>
-              <br>
-              <label for="input">Sueldo base</label>
-              <input type="text" class="form-control" name="sBase" id="sBase" onkeypress="soloNumeros(event)"  required>
-              <br>
-              <label for="input">Correo electronico</label>
-              <input type="email" class="form-control" id="cElectronico" aria-describedby="emailHelp">
-              <br>
-              <select class="form-select" aria-label="Default select example" id="puesto" >
-                <option value="1">Administrativo</option>
-                <option value="2">Conductor</option>
-              </select>
-            </div>
+
+            <label for="numId" class="form-label">Numero de identidad</label>
+            <br>
+            <input type="text" class="form-control" id="numId" placeholder="Ingresar solo numeros sin guion"
+              onkeypress="soloNumeros(event)" maxlength="13" required="">
+            <br>
+            <label for="input">Primer nombre</label>
+            <br>
+            <input type="text" class="form-control" name="pNombre" id="pNombre" required>
+            <br>
+            <label for="input">Segundo nombre</label>
+            <br>
+            <input type="text" class="form-control" name="sNombre" id="sNombre" required>
+            <br>
+            <label for="input">Apellidos</label>
+            <br>
+            <input type="text" class="form-control" name="apellidos" id="apellidos" required>
+            <br>
+            <label for="input">Fecha de nacimiento</label>
+            <br>
+            <input type="date" class="form-control" name="fNacimiento" id="fNacimiento" step="1" value="1990-12-25"
+              required>
+            <br>
+            <label for="input">Genero</label>
+            <br>
+            <select class="form-select">
+              <option value="1">Masculino</option>
+              <option value="2">Femenino</option>
+            </select>
+            <br>
+            <label for="input">Sueldo base</label>
+            <br>
+            <input type="text"  class="form-control" name="sBase" id="sBase" onkeypress="soloNumeros(event)" required>
+            <br>
+            <label for="input">Correo electronico</label>
+            <br>
+            <input type="email"  class="form-control" id="cElectronico" aria-describedby="emailHelp" required>
+            <br>
+            <label for="input">Puesto</label>
+            <br>
+            <select class="form-select"  id="puesto" required>
+              <option value="1">Administrativo</option>
+              <option value="2">Conductor</option>
+            </select>
+            <br>
+
+
 
 
             <main>
@@ -96,24 +106,27 @@
 
                     <hr>
 
-                    <div class="form-group">
 
-                      <label for="input">Nombre completo</label>
-                      <input type="text" class="form-control" id="nCompleto" name="name[]" readonly>
-                      <label for="input">Deducciones por ahorro</label>
-                      <input type="text" class="form-control" id="dAhorro" name="name[]" readonly>
-                      <label for="input">Bonificacion</label>
-                      <input type="text" class="form-control" name="name[]" id="bonificacion" readonly>
-                      <label for="input">Bono navideño</label>
-                      <input type="text" class="form-control"  id="bNavidad" readonly>
-                      <label for="input">Seguro Privado</label>
-                      <input type="text" class="form-control" name="name[]" id="sPrivado" readonly>
-                      <label for="input">Seguro Social</label>
-                      <input type="text" class="form-control" name="name[]" id="sSocial" readonly>
-                      <label for="input">Sueldo Neto</label>
-                      <input type="text" class="form-control" name="name[]" id="sNeto" readonly>
 
-                    </div>
+                    <label for="input">Nombre completo</label>
+                    <input type="text" class="form-control" id="nCompleto" name="name[]" readonly>
+                    <label for="input">Edad</label>
+                    <input type="text" class="form-control" id="edad" readonly>
+                    <label for="input">Deducciones por ahorro</label>
+                    <input type="text" class="form-control" id="dAhorro" name="name[]" readonly>
+                    <label for="input">Bonificacion</label>
+                    <input type="text" class="form-control" name="name[]" id="bonificacion" readonly>
+                    <label for="input">Bono navideño</label>
+                    <input type="text" class="form-control" id="bNavidad" readonly>
+                    <label for="input">Seguro Privado</label>
+                    <input type="text" class="form-control" name="name[]" id="sPrivado" readonly>
+                    <label for="input">Seguro Social</label>
+                    <input type="text" class="form-control" name="name[]" id="sSocial" readonly>
+                    <label for="input">Sueldo Neto</label>
+                    <input type="text" class="form-control" name="name[]" id="sNeto" readonly>
+                    <input type="text" id="dummy" required>
+
+
                     <br>
 
 
@@ -127,7 +140,7 @@
 
             </div>
             <div class="btn-group me-2">
-              <button type="submit" class="btn btn-primary"  id="almacena" onclick="almacenar()">Almacenar</button>
+              <button type="submit" class="btn btn-primary" id="almacena" onclick="almacenar()">Almacenar</button>
             </div>
             <div class="btn-group me-2">
               <button type="submit" class="btn btn-primary" onclick="imprimir()">Imprimir</button>
@@ -144,7 +157,7 @@
 
 
 
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">   
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     </br>
     <h2>Empleados</h2>
     <div class="table-responsive">
